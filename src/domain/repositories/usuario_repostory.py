@@ -27,3 +27,7 @@ class IUsuarioRepository(ABC):
     @abstractmethod
     def deletar(self, id: str) -> None:
         pass
+    
+    @abstractmethod
+    def buscar_por_cpf(self , cpf:str) -> Optional[Usuario]: 
+        pass

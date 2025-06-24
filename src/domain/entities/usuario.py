@@ -3,13 +3,14 @@ from datetime import datetime
 from typing import Optional
 import uuid
 from ..value_objects.email import Email
-
+from ..value_objects.cpf import CPF
 @dataclass
 class Usuario:
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     nome: str = ""
     email: Email = None
     ativo: bool = True
+    Cpf: CPF = None 
     data_criacao: datetime = field(default_factory=datetime.utcnow)
     
     def __post_init__(self):
@@ -17,6 +18,8 @@ class Usuario:
             raise ValueError("Nome é obrigatório")
         if not self.email:
             raise ValueError("Email é obrigatório")
+        if not self.Cpf:
+            raise ValueError("CPF é obrigatório")
     
     def desativar(self) -> None:
         if not self.ativo:
@@ -38,3 +41,5 @@ class Usuario:
     
     def __hash__(self) -> int:
         return hash(self.id)
+    
+    
