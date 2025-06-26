@@ -3,7 +3,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 COPY src/ ./src/
-COPY test_structure.py .
+# COPY test_structure.py .
 RUN mkdir -p src/database
 EXPOSE 5001
 ENV FLASK_APP=src/main.py

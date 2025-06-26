@@ -5,6 +5,6 @@ run:
 stop:
 	docker compose stop
 bash:
-	docker compose exec -it django-web bash
+	docker compose exec -it unimar-ddd-main-postgres-1 bash
 runserver:
-	docker compose run ddd-unimar python manage.py runserver 0.0.0.0:8000
+	docker compose run biblioteca-api
